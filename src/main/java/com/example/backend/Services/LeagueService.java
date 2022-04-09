@@ -6,6 +6,7 @@ import com.example.backend.Repository.LeagueRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class LeagueService {
@@ -20,5 +21,12 @@ public class LeagueService {
     public List<League> updateLeagueInDatabase(Integer competition_id) {
         List<League> allLeagueToSave = liveScoreClient.getLeague(competition_id);
         return leagueRepository.saveAll(allLeagueToSave);
+    }
+    public List<League> showLeagueTable(Integer competition_id) {
+        List<League> leagueTable = leagueRepository.findAll()
+                .stream()
+                .filter(league -> league.competition_id == competition_id)
+                .collect(Collectors.toList());
+        return leagueTable;
     }
 }

@@ -15,31 +15,27 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping(value = "/league" , produces = {MediaType.APPLICATION_JSON_VALUE})
+@RequestMapping(value = "/league", produces = {MediaType.APPLICATION_JSON_VALUE})
 public class LeagueController {
 
-    private final LeagueRepository leagueRepository;
+
     private final LeagueService leagueService;
 
-    public LeagueController(LeagueRepository leagueRepository, LeagueService leagueService) {
-        this.leagueRepository = leagueRepository;
+    public LeagueController(LeagueService leagueService) {
         this.leagueService = leagueService;
     }
 
     @GetMapping("/updateLeagueTable/{competition_id}")
-    public void updateLeagueTable(@PathVariable Integer competition_id){
+    public void updateLeagueTable(@PathVariable Integer competition_id) {
         leagueService.updateLeagueInDatabase(competition_id);
     }
 
     @GetMapping("/{competition_id}")
-            public ResponseEntity<League> showLeagueTable(@PathVariable Integer competition_id){
-        List<League> leagueList = leagueRepository.findAll()
-                .stream()
-                .filter(league -> league.competition_id == competition_id)
-                .collect(Collectors.toList());
-        if(!leagueList.isEmpty()){
-            return new ResponseEntity(leagueList,HttpStatus.OK);
-        }else {
+    public ResponseEntity<League> showLeagueTable(@PathVariable Integer competition_id) {
+        List<League> leagueList = leagueService.showLeagueTable(competition_id);
+        if (!leagueList.isEmpty()) {
+            return new ResponseEntity(leagueList, HttpStatus.OK);
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
 
