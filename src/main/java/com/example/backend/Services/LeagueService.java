@@ -25,7 +25,7 @@ public class LeagueService {
     public List<League> showLeagueTable(Integer competition_id) {
         List<League> leagueTable = leagueRepository.findAll()
                 .stream()
-                .filter(league -> league.competition_id == competition_id)
+                .filter(league -> league.getCompetition_id() == competition_id)
                 .collect(Collectors.toList());
         return leagueTable;
     }
