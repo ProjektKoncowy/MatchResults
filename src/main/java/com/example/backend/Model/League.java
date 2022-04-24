@@ -14,7 +14,7 @@ public class League {
     @Column(name = "teamname")
     public String teamName;
     private String lastUpdateDate;
-    private Integer league_id;
+    private String league_id;
     private Integer season_id;
     private Integer rankInTable;
     private Integer points;

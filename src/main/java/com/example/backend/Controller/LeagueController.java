@@ -25,13 +25,13 @@ public class LeagueController {
         this.leagueService = leagueService;
     }
 
-    @GetMapping("/updateLeagueTable/{competition_id}")
-    public void updateLeagueTable(@PathVariable Integer competition_id) {
-        leagueService.updateLeagueInDatabase(competition_id);
+    @GetMapping("/updateLeagueTable/{competition_id}_{year}")
+    public void updateLeagueTable(@PathVariable String competition_id , @PathVariable String year) {
+        leagueService.updateLeagueInDatabase(competition_id,year);
     }
 
     @GetMapping("/{competition_id}")
-    public ResponseEntity<League> showLeagueTable(@PathVariable Integer competition_id) {
+    public ResponseEntity<League> showLeagueTable(@PathVariable String competition_id) {
         List<League> leagueList = leagueService.showLeagueTable(competition_id);
         if (!leagueList.isEmpty()) {
             return new ResponseEntity(leagueList, HttpStatus.OK);
