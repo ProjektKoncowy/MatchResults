@@ -14,7 +14,7 @@ import java.util.Collections;
 import java.util.List;
 @RequiredArgsConstructor
 @Component
-public class TransferMarketClient {
+public class LeagueTransferMarketClient {
 
     private static final String URL = "https://transfermarket.p.rapidapi.com/competitions/get-table?id=%s&seasonID=%s";
     private static final String HeaderHostName = "X-RapidAPI-Host";
@@ -22,7 +22,7 @@ public class TransferMarketClient {
     private static final String HeaderKeyName = "X-RapidAPI-Key";
     private static final String HeaderKeyValue = "39c3c89896mshca4be26bf496becp12a397jsn37492ce3736f";
 
-    private final TransferMarketResponseMapper transferMarketResponseMapper;
+    private final LeagueTransferMarketResponseMapper leagueTransferMarketResponseMapper;
     private final ObjectMapper objectMapper;
 
     public List<League> getLeague(String competition_id ,String year) {
@@ -38,8 +38,8 @@ public class TransferMarketClient {
             System.out.println(response.body());
             String responseBody = response.body();
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            TransferMarketResponse.Root readValue = objectMapper.readValue(responseBody, TransferMarketResponse.Root.class);
-            List<League> leagueList = transferMarketResponseMapper.asLeague(readValue);
+            LeagueTransferMarketResponse.Root readValue = objectMapper.readValue(responseBody, LeagueTransferMarketResponse.Root.class);
+            List<League> leagueList = leagueTransferMarketResponseMapper.asLeague(readValue);
             return leagueList;
         } catch (Exception e) {
             System.out.println(e.getMessage());

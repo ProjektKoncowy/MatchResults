@@ -15,7 +15,6 @@ public class League {
     public String teamName;
     private String lastUpdateDate;
     private String league_id;
-    private Integer season_id;
     private Integer rankInTable;
     private Integer points;
     private Integer matches;
@@ -25,6 +24,6 @@ public class League {
     private Integer lost;
     private Integer drawn;
     private Integer won;
-    public Integer competition_id;
+
 
 }

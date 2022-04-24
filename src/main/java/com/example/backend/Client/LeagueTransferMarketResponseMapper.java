@@ -7,15 +7,15 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 @Component
-public class TransferMarketResponseMapper {
-    List<League> asLeague(TransferMarketResponse.Root response) {
+public class LeagueTransferMarketResponseMapper {
+    List<League> asLeague(LeagueTransferMarketResponse.Root response) {
         List<League> fullLeague = new ArrayList<>();
 
-        for(TransferMarketResponse.Table team:response.getTable()){
+        for(LeagueTransferMarketResponse.Table team:response.getTable()){
             League league = new League();
             league.setLastUpdateDate(LocalDateTime.now().getYear()+"-"+LocalDateTime.now().getMonth()+"-"+LocalDateTime.now().getDayOfMonth()+"__"+LocalDateTime.now().getHour()+":"+LocalDateTime.now().getMinute());
             String url = response.getShare().getUrl();
-            league.setLeague_id(url.substring(url.length()-3,url.length()));
+            league.setLeague_id(url.substring(url.length()-3,url.length()).replaceAll("/",""));
             league.setTeamName(team.getClubName());
             league.setRankInTable(team.getRank());
             league.setPoints(team.getPoints());

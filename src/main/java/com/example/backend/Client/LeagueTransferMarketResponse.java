@@ -5,7 +5,7 @@ import lombok.Data;
 
 import java.util.ArrayList;
 @Data
-public class TransferMarketResponse {
+public class LeagueTransferMarketResponse {
 
     private Share share;
     private Table table;
