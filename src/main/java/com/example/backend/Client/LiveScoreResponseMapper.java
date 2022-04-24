@@ -10,10 +10,10 @@ public class LiveScoreResponseMapper {
     League asLeague(LiveScoreResponse.Table singleTable){
 
         League league = new League();
-        league.setLastUpdateDate(LocalDateTime.now());
+        league.setLastUpdateDate(LocalDateTime.now().toString());
         league.setLeague_id(Integer.parseInt(singleTable.getLeague_id()));
         league.setSeason_id(Integer.parseInt(singleTable.getLeague_id()));
-        league.setName(singleTable.getName());
+        league.setTeamName(singleTable.getName());
         league.setRankInTable(Integer.parseInt(singleTable.getRank()));
         league.setPoints(Integer.parseInt(singleTable.getPoints()));
         league.setMatches(Integer.parseInt(singleTable.getMatches()));

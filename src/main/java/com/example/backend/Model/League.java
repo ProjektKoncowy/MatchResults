@@ -4,7 +4,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.time.Instant;
 import java.time.LocalDateTime;
 
 @NoArgsConstructor
@@ -12,8 +11,9 @@ import java.time.LocalDateTime;
 @Data
 public class League {
     @Id
-    public String name;
-    private LocalDateTime lastUpdateDate;
+    @Column(name = "teamname")
+    public String teamName;
+    private String lastUpdateDate;
     private Integer league_id;
     private Integer season_id;
     private Integer rankInTable;
