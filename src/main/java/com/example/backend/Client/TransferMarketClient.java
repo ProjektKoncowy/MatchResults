@@ -52,7 +52,7 @@ public class TransferMarketClient {
     private static final String URL_MATCH_BY_DAY = "https://transfermarket.p.rapidapi.com/matches/list-by-date?date=%s";
     private final MatchesByDayResponseMapper matchesByDayResponseMapper;
 
-    public void getMatchesByDay(String date) {
+    public List<Match> getMatchesByDay(String date) {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create(String.format(URL_MATCH_BY_DAY, date)))
@@ -64,13 +64,15 @@ public class TransferMarketClient {
         try {
             HttpResponse<String> response = HttpClient.newHttpClient().send(request, HttpResponse.BodyHandlers.ofString());
             String responseBody = response.body();
-            System.out.println(responseBody);
             objectMapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
             MatchesByDayResponse.Root readValue = objectMapper.readValue(responseBody, MatchesByDayResponse.Root.class);
             List<Match> matches = matchesByDayResponseMapper.getMatches(readValue);
-            System.out.println(matches);
+            return matches;
         } catch (Exception e) {
+            e.printStackTrace();
             System.out.println(e.getMessage());
+            return Collections.emptyList();
+
         }
     }
 }

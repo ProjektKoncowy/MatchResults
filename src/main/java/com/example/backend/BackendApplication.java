@@ -11,11 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class BackendApplication {
 
     public static void main(String[] args) {
-
-
         SpringApplication.run(BackendApplication.class, args);
-        TransferMarketClient transferMarketClient = new TransferMarketClient(new LeagueTransferMarketResponseMapper(),new ObjectMapper(),new MatchesByDayResponseMapper());
-        transferMarketClient.getMatchesByDay("2022-04-28");
 
     }
 

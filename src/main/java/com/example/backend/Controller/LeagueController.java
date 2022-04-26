@@ -26,8 +26,13 @@ public class LeagueController {
     }
 
     @GetMapping("/updateLeagueTable/{competition_id}_{year}")
-    public void updateLeagueTable(@PathVariable String competition_id , @PathVariable String year) {
-        leagueService.updateLeagueInDatabase(competition_id,year);
+    public ResponseEntity<League>  updateLeagueTable(@PathVariable String competition_id , @PathVariable String year) {
+        List<League> leagueList = leagueService.updateLeagueInDatabase(competition_id, year);
+        if (!leagueList.isEmpty()) {
+            return new ResponseEntity(HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
     }
 
     @GetMapping("/{competition_id}")

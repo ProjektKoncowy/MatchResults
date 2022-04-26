@@ -145,6 +145,7 @@ public class MatchesByDayResponseMapper {
                     match.setResult(x.getResult());
                     match.setMatchDate(x.getMatchDate());
                     match.setMatchTime(x.getMatchTime());
+                    match.setState(x.getResultObject().getState());
                     matchList.add(match);
                 });
             }

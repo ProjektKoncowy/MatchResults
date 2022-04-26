@@ -18,6 +18,7 @@ public class Match {
     private String result;
     private String matchDate;
     private String matchTime;
+    private String state;
 
 
 }
