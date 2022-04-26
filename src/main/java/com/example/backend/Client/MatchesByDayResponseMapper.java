@@ -19,7 +19,11 @@ public class MatchesByDayResponseMapper {
             }
 
         }catch (Exception e){
-            e.printStackTrace();
+            if(e.getClass().equals(NullPointerException.class)){
+                System.out.println("No matches in Champions league");
+            }else {
+                e.printStackTrace();
+            }
         }
         try{
             ArrayList<MatchesByDayResponse.Match> el = response.getLiveMatches().getEl();
@@ -27,7 +31,11 @@ public class MatchesByDayResponseMapper {
                 matchInLeague.add(el);
             }
         }catch (Exception e){
-            e.printStackTrace();
+            if(e.getClass().equals(NullPointerException.class)){
+                System.out.println("No matches in Europe league");
+            }else {
+                e.printStackTrace();
+            }
         }
         try{
             ArrayList<MatchesByDayResponse.Match> ucol = response.getLiveMatches().getUcol();
@@ -35,7 +43,11 @@ public class MatchesByDayResponseMapper {
                 matchInLeague.add(ucol);
             }
         }catch (Exception e){
-            e.printStackTrace();
+            if(e.getClass().equals(NullPointerException.class)){
+                System.out.println("No matches in Uefa conference league");
+            }else {
+                e.printStackTrace();
+            }
         }
         try{
             ArrayList<MatchesByDayResponse.Match> pl1s = response.getLiveMatches().getPL1();
@@ -43,7 +55,11 @@ public class MatchesByDayResponseMapper {
                 matchInLeague.add(pl1s);
             }
         }catch (Exception e){
-            e.printStackTrace();
+            if(e.getClass().equals(NullPointerException.class)){
+                System.out.println("No matches in PL1");
+            }else {
+                e.printStackTrace();
+            }
         }
         try{
             ArrayList<MatchesByDayResponse.Match> gb1s = response.getLiveMatches().getGB1();
@@ -51,7 +67,11 @@ public class MatchesByDayResponseMapper {
                 matchInLeague.add(gb1s);
             }
         }catch (Exception e){
-            e.printStackTrace();
+            if(e.getClass().equals(NullPointerException.class)){
+                System.out.println("No matches in GB1");
+            }else {
+                e.printStackTrace();
+            }
         }
         try{
             ArrayList<MatchesByDayResponse.Match> es1 = response.getLiveMatches().getES1();
@@ -59,7 +79,11 @@ public class MatchesByDayResponseMapper {
                 matchInLeague.add(es1);
             }
         }catch (Exception e){
-            e.printStackTrace();
+            if(e.getClass().equals(NullPointerException.class)){
+                System.out.println("No matches in ES1");
+            }else {
+                e.printStackTrace();
+            }
         }
         try{
             ArrayList<MatchesByDayResponse.Match> it1 = response.getLiveMatches().getIT1();
@@ -67,7 +91,11 @@ public class MatchesByDayResponseMapper {
                 matchInLeague.add(it1);
             }
         }catch (Exception e){
-            e.printStackTrace();
+            if(e.getClass().equals(NullPointerException.class)){
+                System.out.println("No matches in IT1");
+            }else {
+                e.printStackTrace();
+            }
         }
         try{
             ArrayList<MatchesByDayResponse.Match> fr1 = response.getLiveMatches().getFR1();
@@ -75,7 +103,11 @@ public class MatchesByDayResponseMapper {
                 matchInLeague.add(fr1);
             }
         }catch (Exception e){
-            e.printStackTrace();
+            if(e.getClass().equals(NullPointerException.class)){
+                System.out.println("No matches in FR1");
+            }else {
+                e.printStackTrace();
+            }
         }
         try{
             ArrayList<MatchesByDayResponse.Match> l1 = response.getLiveMatches().getL1();
@@ -83,7 +115,11 @@ public class MatchesByDayResponseMapper {
                 matchInLeague.add(l1);
             }
         }catch (Exception e){
-            e.printStackTrace();
+            if(e.getClass().equals(NullPointerException.class)){
+                System.out.println("No matches in L1");
+            }else {
+                e.printStackTrace();
+            }
         }
         try{
             ArrayList<MatchesByDayResponse.Match>  nl1= response.getLiveMatches().getNL1();
@@ -91,7 +127,11 @@ public class MatchesByDayResponseMapper {
                 matchInLeague.add(nl1);
             }
         }catch (Exception e){
-            e.printStackTrace();
+            if(e.getClass().equals(NullPointerException.class)){
+                System.out.println("No matches in NL1");
+            }else {
+                e.printStackTrace();
+            }
         }
 
         try {
