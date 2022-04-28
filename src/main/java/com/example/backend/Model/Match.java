@@ -19,6 +19,7 @@ public class Match {
     private String matchDate;
     private String matchTime;
     private String state;
+    private String lastUpdate;
 
 
 }

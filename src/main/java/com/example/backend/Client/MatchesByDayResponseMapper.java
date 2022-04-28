@@ -3,6 +3,7 @@ package com.example.backend.Client;
 import com.example.backend.Model.Match;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -146,6 +147,7 @@ public class MatchesByDayResponseMapper {
                     match.setMatchDate(x.getMatchDate());
                     match.setMatchTime(x.getMatchTime());
                     match.setState(x.getResultObject().getState());
+                    match.setLastUpdate(LocalDateTime.now().getYear() + "-" + LocalDateTime.now().getMonth() + "-" + LocalDateTime.now().getDayOfMonth() + "  " + LocalDateTime.now().getHour() + ":" + LocalDateTime.now().getMinute());
                     matchList.add(match);
                 });
             }

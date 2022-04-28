@@ -14,7 +14,7 @@ public class LeagueTransferMarketResponseMapper {
         try {
             for (LeagueTransferMarketResponse.Table team : response.getTable()) {
                 League league = new League();
-                league.setLastUpdateDate(LocalDateTime.now().getYear() + "-" + LocalDateTime.now().getMonth() + "-" + LocalDateTime.now().getDayOfMonth() + "__" + LocalDateTime.now().getHour() + ":" + LocalDateTime.now().getMinute());
+                league.setLastUpdateDate(LocalDateTime.now().getYear() + "-" + LocalDateTime.now().getMonth() + "-" + LocalDateTime.now().getDayOfMonth() + "  " + LocalDateTime.now().getHour() + ":" + LocalDateTime.now().getMinute());
                 String url = response.getShare().getUrl();
                 league.setLeague_id(url.substring(url.length() - 3).replaceAll("/", ""));
                 league.setTeamName(team.getClubName());
