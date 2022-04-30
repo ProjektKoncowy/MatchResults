@@ -21,7 +21,7 @@ public class MatchesByDayResponse {
         public String result;
         public String goalsHome;
         public String goalsAway;
-        public int minute;
+        public String minute;
         public String state;
         public int destinationValue;
         public String destinationDescription;
