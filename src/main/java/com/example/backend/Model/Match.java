@@ -5,6 +5,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.sql.Date;
 
 @NoArgsConstructor
 @Entity
@@ -16,7 +17,7 @@ public class Match {
     private String homeClubName;
     private String awayClubName;
     private String result;
-    private String matchDate;
+    private Date matchDate;
     private String matchTime;
     private String state;
     private String lastUpdate;

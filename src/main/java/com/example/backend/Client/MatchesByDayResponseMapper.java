@@ -3,7 +3,10 @@ package com.example.backend.Client;
 import com.example.backend.Model.Match;
 import org.springframework.stereotype.Component;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -144,7 +147,8 @@ public class MatchesByDayResponseMapper {
                     match.setHomeClubName(x.getHomeClubName());
                     match.setAwayClubName(x.getAwayClubName());
                     match.setResult(x.getResult());
-                    match.setMatchDate(x.getMatchDate());
+                    String dateConverted = x.getMatchDate().substring(6,10)+'-'+x.getMatchDate().substring(3,5)+'-'+x.getMatchDate().substring(0,2);
+                    match.setMatchDate(Date.valueOf(dateConverted));
                     match.setMatchTime(x.getMatchTime());
                     match.setState(x.getResultObject().getState());
                     match.setLastUpdate(LocalDateTime.now().getYear() + "-" + LocalDateTime.now().getMonth() + "-" + LocalDateTime.now().getDayOfMonth() + "  " + LocalDateTime.now().getHour() + ":" + LocalDateTime.now().getMinute());
